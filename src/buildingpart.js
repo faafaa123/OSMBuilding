@@ -118,6 +118,8 @@ class BuildingPart {
     specifiedOptions.roof.material = this.getAttribute('roof:material');
     specifiedOptions.roof.orientation = this.getAttribute('roof:orientation');
     specifiedOptions.roof.shape = this.getAttribute('roof:shape');
+    // let fakeShape = ['dome', 'flat', 'gabled', 'onion', 'pyramidal', 'skillion', 'hipped', 'round', 'gambrel'];
+    // specifiedOptions.roof.shape = "pyramidal"
 
     this.options.specified = specifiedOptions;
 

@@ -115,7 +115,7 @@ async function getFileFromForm() {
  */
 function init() {
   let type = 'way';
-  let id = 66418809;
+  let id = 431078995;
 
   let displayInfo = false;
 
@@ -137,24 +137,30 @@ function init() {
   const fileUrl = new URLSearchParams(location.search).get('fromFile');
   async function downloadInnerData() {
     if (fileUrl === '') {
+      console.log('getFileFromForm')
       return await getFileFromForm();
     } else if (fileUrl !== null) {
+      console.log('Loading map data from URL')
       printError('Loading map data from URL');
       return await (await fetch(new URLSearchParams(location.search).get('fromFile'))).text();
     } else {
+      console.log('downloadDataAroundBuilding')
       return await Building.downloadDataAroundBuilding(type, id);
     }
   }
   downloadInnerData().then(function(innerData){
+    console.log(innerData)
     mainBuilding = new Building(id, innerData);
     const helperSize = mainBuilding.outerElement.getWidth();
     const helper = new GridHelper(helperSize / 0.9, helperSize / 9);
     scene.add(helper);
 
     const mesh = mainBuilding.render();
+    console.log(mainBuilding)
+    console.log(mesh)
     for (let i = 0; i < mesh.length; i++) {
       if (mesh[i] && mesh[i].isObject3D) {
-        scene.add(mesh[i]);
+        scene.add(mesh[0]);
       } else {
         window.printError('not Object');
       }
