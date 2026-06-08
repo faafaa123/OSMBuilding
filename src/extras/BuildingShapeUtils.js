@@ -14,6 +14,10 @@ class BuildingShapeUtils extends ShapeUtils {
    * @return {THREE.Shape} shape - the shape
    */
   static createShape(way, nodelist) {
+    console.log('shape')
+    console.log(way)
+    console.log(nodelist)
+    // nodelist.slice(0,1)
     // Initialize objects
     const shape = new Shape();
     var ref;

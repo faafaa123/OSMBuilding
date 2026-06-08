@@ -104,6 +104,7 @@ class Building {
     this.repositionNodes();
     if (this.type === 'way') {
       this.outerElement = new BuildingPart(id, this.fullXmlData, this.nodelist);
+      console.log(this.outerElement)
     } else if (this.type === 'multipolygon') {
       this.outerElement = new MultiBuildingPart(id, this.fullXmlData, this.nodelist);
     } else {
